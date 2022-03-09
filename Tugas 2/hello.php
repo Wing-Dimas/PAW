@@ -11,6 +11,6 @@ echo "Nama : Dimas Wing Bagas Bimantara";
 // Membuat enter pada halaman HTML
 echo "<br>";
 // Menampilkan NIM mahasiswa
-echo "NIM  : 200411100119"
+echo "NIM  : 200411100119";
 
 ?>
