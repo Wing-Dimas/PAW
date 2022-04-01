@@ -1,3 +1,7 @@
+<?php 
+require "./fungsi/fungsi.php"
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -123,7 +127,7 @@
               <div class="mahasiswa">
                 <div class="cardHeader">
                   <h2>Mahasiswa</h2>
-                    <button type="button" class="btn btn-success">
+                    <button type="button" class="btn btn-success btn-tambah"  data-toggle="modal" data-target="#formModal">
                       <div class="icon"><ion-icon name="add-outline"></ion-icon></div>
                       <div class="title">Tambah</div>
                     </button>
@@ -143,25 +147,30 @@
                       </tr>
                     </thead>
                     <tbody>
+                      <?php 
+                      $no = 1;
+                      foreach(getAllDataMahasiswa() as $mhs): ?>
                       <tr>
-                        <th scope="row">1</th>
-                        <td>Dimas Wing Bagas Bimantara</td>
-                        <td>200411100119</td>
-                        <td>Teknik</td>
-                        <td>Teknik Informatika</td>
-                        <td>4</td>
-                        <td>3.67</td>
+                        <th scope="row"><?= $no; ?></th>
+                        <td><?= $mhs["nama"]; ?></td>
+                        <td><?= $mhs["nim"]; ?></td>
+                        <td><?= $mhs["fakultas"]; ?></td>
+                        <td><?= $mhs["jurusan"]; ?></td>
+                        <td><?= $mhs["semester"]; ?></td>
+                        <td><?= $mhs["ipk"]; ?></td>
                         <td class="action">
-                          <a href="" class="btn btn-warning">
+                          <button class="btn btn-warning tampilModalEdit" data-id="<?= $mhs["id"] ?>" data-toggle="modal" data-target="#formModal">
                             <div class="icon"><ion-icon name="create-outline"></ion-icon></div>
                             <div class="title">Edit</div>
-                          </a>
-                          <a href="" class="btn btn-danger">
+                          </button>
+                          <a href="./fungsi/delete.php?id=<?= $mhs["id"] ?>" class="btn btn-danger btn-hapus">
                             <div class="icon"><ion-icon name="trash-outline"></ion-icon></div>
                             <div class="title">Hapus</div>
                           </a>
                         </td>
                       </tr>
+                      <?php $no++; ?>
+                      <?php endforeach ?>
                     </tbody>
                   </table>
                 </div>
@@ -171,6 +180,55 @@
           </div>
       </div>
     </div>
+
+    
+
+    <!-- modal -->
+    <div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="formModalLabel">Modal title</h5>
+          </div>
+          <div class="modal-body">
+            <form action="./fungsi/tambah.php" method="POST">
+              <input type="hidden" id="id" name="id" value="">
+              <div class="mb-3">
+                <label for="nama" class="form-label">Nama</label>
+                <input name="nama" type="text" class="form-control" id="nama" placeholder="Masukan nama">
+              </div>
+              <div class="mb-3">
+                <label for="nim" class="form-label">Nim</label>
+                <input name="nim" type="text" class="form-control" id="nim" placeholder="Masukan Nim">
+              </div>
+              <div class="mb-3">
+                <label for="fakultas" class="form-label">Fakultas</label>
+                <input name="fakultas" type="text" class="form-control" id="fakultas" placeholder="Masukan fakultas">
+              </div>
+              <div class="mb-3">
+                <label for="jurusan" class="form-label">Jurusan</label>
+                <input name="jurusan" type="text" class="form-control" id="jurusan" placeholder="Masukan jurusan">
+              </div>
+              <div class="mb-3">
+                <label for="semester" class="form-label">Semester</label>
+                <input name="semester" type="text" class="form-control" id="semester" placeholder="Masukan semester">
+              </div>
+              <div class="mb-3">
+                <label for="ipk" class="form-label">IPK</label>
+                <input name="ipk" type="text" class="form-control" id="ipk" placeholder="Masukan IPK">
+              </div>
+            </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
 
     <script src="./assets/js/jquery-3.3.1.min.js"></script>
     <script src="./assets/js/popper.min.js"></script>
