@@ -1,5 +1,6 @@
 <?php 
-require "./fungsi/fungsi.php"
+require "./fungsi/fungsi.php";
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -76,53 +77,6 @@ require "./fungsi/fungsi.php"
 
           
           <div class="container-fluid">
-            <div class="row card-list">
-              <div class="col col-xl-3 col-md-6 col-sm-12">
-                <div class="card">
-                  <div>
-                    <div class="numbers">1.590</div>
-                    <div class="cardName">Daily Views</div>
-                  </div>
-                  <div class="iconBx">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-                </div>
-              </div>
-              <div class="col col-xl-3 col-md-6 col-sm-12">
-                <div class="card">
-                  <div>
-                    <div class="numbers">80</div>
-                    <div class="cardName">Sales</div>
-                  </div>
-                  <div class="iconBx">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-                </div>
-              </div>
-              <div class="col col-xl-3 col-md-6 col-sm-12">
-                <div class="card">
-                  <div>
-                    <div class="numbers">357</div>
-                    <div class="cardName">Comments</div>
-                  </div>
-                  <div class="iconBx">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-                </div>
-              </div>
-              <div class="col col-xl-3 col-md-6 col-sm-12">
-                <div class="card">
-                  <div>
-                    <div class="numbers">$7,597</div>
-                    <div class="cardName">Earning</div>
-                  </div>
-                  <div class="iconBx">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-                </div>
-              </div>
-            </div>
-
             <div class="details">
               <div class="mahasiswa">
                 <div class="cardHeader">
@@ -239,3 +193,19 @@ require "./fungsi/fungsi.php"
     <script src="./assets/js/script.js"></script>
   </body>
 </html>
+
+
+<?php 
+if(isset($_SESSION["flash"])){
+  $pesan = $_SESSION["flash"]["pesan"];
+  $tipe = $_SESSION["flash"]["tipe"];
+  unset($_SESSION["flash"]);
+  echo "<script>
+    Swal.fire({
+      title: 'Data Mahasiswa',
+      text: '$pesan',
+      icon: '$tipe'
+    });
+  </script>";
+}
+?>

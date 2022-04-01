@@ -13,10 +13,6 @@ function query($query){
     global $conn;
     
     $result = mysqli_query($conn, $query);
-
-    if(mysqli_affected_rows($conn) <= 0){
-        die(mysqli_error($conn));
-    }
     
     $rows = [];
     while ($row = mysqli_fetch_assoc($result)) {
@@ -26,10 +22,15 @@ function query($query){
     return $rows;
 }
 
+function rowCount(){
+    global $conn;
+    return mysqli_affected_rows($conn);
+}
+
 function statement($query){
     global $conn;
     mysqli_query($conn,$query);
-    if(mysqli_affected_rows($conn) <= 0){
+    if (rowCount() <= 0){
         die(mysqli_error($conn));
     }
 }
@@ -38,4 +39,13 @@ function getAllDataMahasiswa(){
     $query = "SELECT * FROM tbl_119";
     $data = query($query);
     return $data;
+}
+
+
+function setFlash( $pesan, $tipe){
+    session_start();
+    $_SESSION["flash"] = [
+        "pesan" => $pesan,
+        "tipe" => $tipe
+    ];
 }
