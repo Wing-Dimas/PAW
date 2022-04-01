@@ -19,7 +19,7 @@ require "./fungsi/fungsi.php"
           <li>
             <a href="">
               <span class="icon"><ion-icon name="logo-apple"></ion-icon></span>
-              <span class="title">Brand name</span>
+              <span class="title">Admin</span>
             </a>
           </li>
           <li>
