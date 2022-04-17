@@ -1,3 +1,18 @@
+<?php 
+session_start();
+if(isset($_SESSION["login"])){
+    if(!$_SESSION["login"]){
+        header("Location: index.php");
+    }else{
+        if($_SESSION["level"] == "admin"){
+            header("Location: admin.php");
+        }
+    }
+  }else{
+    header("Location: index.php");
+  }
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -37,7 +52,7 @@
             </button>
         </li>
         <li class="nav-item logout d-flex justify-content-center">
-            <a class="btn">
+            <a href="./fungsi/login/logout.php" class="btn">
                 <ion-icon name="log-out-outline"></ion-icon>
             </a>
         </li>
@@ -252,6 +267,7 @@
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="./asset/js/bootstrap.min.js"></script>
+    <script src="./asset/js/script.js"></script>
 
   </body>
 </html>

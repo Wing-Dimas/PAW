@@ -1,3 +1,21 @@
+<?php 
+  session_start();
+  require "./fungsi/fungsi.php";
+
+  if(isset($_SESSION["login"])){
+    if(!$_SESSION["login"]){
+      header("Location: index.php");
+    }else{
+      if($_SESSION["level"] == "waitter"){
+          header("Location: pemesanan.php");
+      }
+  }
+  }else{
+    header("Location: index.php");
+  }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,7 +63,7 @@
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false"></button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-              <li><a href="#" class="dropdown-item" type="button">Logout</a></li>
+              <li><a href="./fungsi/login/logout.php" class="dropdown-item" type="button">Logout</a></li>
             </ul>
           </div>
     </div>
@@ -91,7 +109,7 @@
 
         <!-- ADMIN -->
         <div class="tab-pane fade" id="page-admin" role="tabpanel" aria-labelledby="page-admin-tab">
-            <button class="btn btn-success">Tambah</button>
+            <button class="btn btn-success btn-tambah-admin" data-bs-toggle="modal" data-bs-target="#form-modal-admin">Tambah</button>
             <table class="table">
                 <thead>
                   <tr>
@@ -103,24 +121,28 @@
                   </tr>
                 </thead>
                 <tbody>
+                  <?php 
+                  $no = 1;
+                  foreach(getDataAdmin() as $data): ?>
                   <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                    <th scope="row"><?= $no++; ?></th>
+                    <td><?= $data["username"]; ?></td>
+                    <td><?= $data["password"]; ?></td>
+                    <td><?= $data["jabatan"]; ?></td>
                     <td>
-                        <div class="action d-flex justify-content-between">
-                            <button class="btn btn-warning d-flex justify-content-between btn-edit tampilModalEditAdmin me-2" data-id="0" data-bs-toggle="modal" data-bs-target="#form-modal-admin">
-                                <div class="icon"><ion-icon name="create-outline"></ion-icon></div>
-                                <div class="title">Edit</div>
-                              </button>
-                              <a href="#" class="btn btn-danger d-flex justify-content-between btn-hapus">
-                                <div class="icon"><ion-icon name="trash-outline"></ion-icon></div>
-                                <div class="title">Hapus</div>
-                              </a>
-                        </div>
+                      <div class="action d-flex justify-content-between">
+                          <button class="btn btn-warning d-flex justify-content-between btn-edit tampilModalEditAdmin me-2" data-id="<?= $data["id_admin"] ?>" data-bs-toggle="modal" data-bs-target="#form-modal-admin">
+                              <div class="icon"><ion-icon name="create-outline"></ion-icon></div>
+                              <div class="title">Edit</div>
+                            </button>
+                            <a href="./fungsi/model/admin/delete.php?id=<?= $data["id_admin"] ?>" class="btn btn-danger d-flex justify-content-between btn-hapus">
+                              <div class="icon"><ion-icon name="trash-outline"></ion-icon></div>
+                              <div class="title">Hapus</div>
+                            </a>
+                      </div>
                     </td>
                   </tr>
+                  <?php endforeach; ?>
                 </tbody>
               </table>
         </div>
@@ -156,9 +178,6 @@
                                         <span>Mocha</span>
                                         <span class="qty">1x</span>
                                     </li>
-                                    <li class="list-group-item">
-
-                                    </li>
                                   </ul>
                             </div>
                           </div>
@@ -173,13 +192,13 @@
 
         <!-- MENU -->
         <div class="tab-pane fade" id="page-menu" role="tabpanel" aria-labelledby="page-menu-tab">
-            <button class="btn btn-success">Tambah</button>
+            <button class="btn btn-success btn-tambah-menu" data-bs-toggle="modal" data-bs-target="#form-modal-menu">Tambah</button>
             <table class="table">
                 <thead>
                   <tr>
                     <th scope="col">Kode</th>
                     <th scope="col">Nama</th>
-                    <th scope="col">Kategori</th>
+                    <th scope="col">Kategory</th>
                     <th scope="col">Stok</th>
                     <th scope="col">harga</th>
                     <th scope="col">deskripsi</th>
@@ -188,27 +207,29 @@
                   </tr>
                 </thead>
                 <tbody>
+                  <?php foreach(getDataMenu() as $data): ?>
                   <tr>
-                    <th scope="row">M0001</th>
-                    <td>Espresso</td>
-                    <td>makanan</td>
-                    <td>4</td>
-                    <td>10000</td>
-                    <td>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum, possimus?</td>
-                    <td>epreesso.jpg</td>
+                    <th scope="row"><?= $data["Kode_menu"]; ?></th>
+                    <td><?= $data["nama_menu"]; ?></td>
+                    <td><?= $data["kategory"]; ?></td>
+                    <td><?= $data["stok_menu"]; ?></td>
+                    <td><?= $data["harga_menu"]; ?></td>
+                    <td><?= $data["deskripsi"]; ?></td>
+                    <td><?= $data["gambar"]; ?></td>
                     <td>
-                        <div class="action d-flex justify-content-between">
-                        <button class="btn btn-warning d-flex justify-content-between btn-edit tampilModalEditAdmin me-2" data-id="0" data-bs-toggle="modal" data-bs-target="#form-modal-admin">
-                            <div class="icon"><ion-icon name="create-outline"></ion-icon></div>
-                            <div class="title">Edit</div>
-                          </button>
-                          <a href="#" class="btn btn-danger d-flex justify-content-between btn-hapus">
-                            <div class="icon"><ion-icon name="trash-outline"></ion-icon></div>
-                            <div class="title">Hapus</div>
-                          </a>
-                        </div>
+                      <div class="action d-flex justify-content-between">
+                          <button class="btn btn-warning d-flex justify-content-between btn-edit tampilModalEditMenu me-2" data-id="<?= $data["Kode_menu"] ?>" data-bs-toggle="modal" data-bs-target="#form-modal-menu">
+                              <div class="icon"><ion-icon name="create-outline"></ion-icon></div>
+                              <div class="title">Edit</div>
+                            </button>
+                            <a href="./fungsi/model/admin/delete.php?id=<?= $data["Kode_menu"] ?>" class="btn btn-danger d-flex justify-content-between btn-hapus">
+                              <div class="icon"><ion-icon name="trash-outline"></ion-icon></div>
+                              <div class="title">Hapus</div>
+                            </a>
+                      </div>
                     </td>
                   </tr>
+                  <?php endforeach; ?>
                 </tbody>
               </table>
         </div>
@@ -224,15 +245,29 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="admin-modal">Modal title</h5>
+              <h5 class="modal-title" id="admin-modal">Tambah Admin</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              ...
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+              <form action="./fungsi/model/admin/tambah.php" method="POST">
+                <input id="id_admin" name="id_admin" type="hidden">
+                <div class="mb-3">
+                  <label for="username" class="form-label">Username</label>
+                  <input type="text" name="username" class="form-control" id="username">
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" name="password" class="form-control" id="password">
+                </div>
+                <select name="jabatan" id="jabatan" class="form-select" aria-label="Default select example">
+                  <option selected value="admin">Admin</option>
+                  <option value="waitter">Waitter</option>
+                </select>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Tambah</button>
+              </form>
             </div>
           </div>
         </div>
@@ -240,13 +275,80 @@
     <!-- END MODAL ADMIN -->
 
     <!-- MODAL MENU -->
-
+    <div class="modal fade" id="form-modal-menu" tabindex="-1" aria-labelledby="menu-modal" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="menu-modal">Tambah Menu</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form action="./fungsi/model/menu/tambah.php" method="POST">
+                <div class="mb-3">
+                  <label for="kode_menu" class="form-label">Kode Menu</label>
+                  <input type="text" name="kode_menu" class="form-control" id="kode_menu">
+                </div>
+                <div class="mb-3">
+                  <label for="nama" class="form-label">Nama</label>
+                  <input type="text" name="nama" class="form-control" id="nama">
+                </div>
+                <div class="mb-3">
+                  <label for="kategory" class="form-label">Kategory</label>
+                  <input type="text" name="kategory" class="form-control" id="kategory">
+                </div>
+                <div class="mb-3">
+                  <label for="stok" class="form-label">Stok</label>
+                  <input type="text" name="stok" class="form-control" id="stok">
+                </div>
+                <div class="mb-3">
+                  <label for="harga" class="form-label">Harga</label>
+                  <input type="text" name="harga" class="form-control" id="harga">
+                </div>
+                <div class="mb-3">
+                  <label for="deskripsi" class="form-label">Deskripsi</label>
+                  <textarea cols="50" rows="3" name="deskripsi" class="form-control" id="deskripsi"></textarea>
+                </div>
+                <div class="mb-3">
+                  <label for="gambar" class="form-label">Gambar</label>
+                  <input type="text" name="gambar" class="form-control" id="gambar">
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Tambah</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     <!-- END MODAL MENU -->
 
     <script src="./asset/js/jquery.js"></script>
     <script src="./asset/js/popper.min.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="./asset/js/bootstrap.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./asset/js/script.js"></script>
 </body>
 </html>
+
+
+<?php 
+  if(isset($_SESSION["flash"])){
+    $icon = $_SESSION["flash"]["tipe"];
+    $pesan = $_SESSION["flash"]["pesan"];
+    $table = $_SESSION["flash"]["table"];
+
+    echo "<script>
+    Swal.fire({
+      icon: '$icon',
+      title: 'Data $table',
+      text: '$pesan',
+    })
+    </script>";
+
+    unset($_SESSION["flash"]);
+  }
+
+?>
