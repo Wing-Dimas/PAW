@@ -1,0 +1,393 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background-color: #F8F8F8;
+    overflow: hidden;
+    height: 100vh;
+}
+.nav{
+    background-color: #fff;
+}
+.nav-side{
+    width:70px;
+    height: 100vh;
+    padding: 0 10px;
+    box-shadow: 7px 0 30px #ECECEC;
+    position: absolute;
+    left: 0;
+}
+.nav-side button{
+    width: 92%;
+    color: #7C7C7C;
+}
+.nav-side button.active.nav-link{
+    border-right: 2px solid #FF5D02;
+    background-color: #fff;
+    color: #FF5D02;
+    border-radius: 0;
+}
+
+.nav-side button:hover{
+    color: #FF5D02;
+}
+.logout{
+    position: absolute;
+    bottom: 0;
+}
+.logout:hover a{
+    color: #FF5D02;
+}
+.header{
+    position: absolute;
+    width: calc(100% - 70px - 320px);
+    left: 75px;
+    padding: 20px;
+}
+
+.header .title h1{
+    font-size: 14px;
+    font-weight: 800;
+    margin: 0;
+}
+.header .title p{
+    font-size: 10px;
+    padding: 0;
+}
+.header .search{
+    position: relative;
+}
+.header .search ion-icon{
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    font-size: 20px;
+}
+.header .search input{
+    outline: none;
+    border: none;
+    background-color: #F4F4F4 ;
+    padding: 10px 10px 10px 40px;
+    font-size: 12px;
+}
+.header .search input::placeholder{
+    font-size: 12px;
+}
+
+.tab-content{
+    position: absolute;
+    padding: 20px;
+    height: calc(100% - 70px);
+    width: calc(100% - 70px - 320px);
+    top: 70px;
+    left: 75px;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar{
+    width: 0;
+}
+
+.hero .imgBox{
+    position: relative;
+    width: 362px;
+    height: 272px;
+    overflow: hidden;
+}
+
+.hero .imgBox img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero .deskripsi{
+    width: 530px;
+}
+
+.hero .deskripsi h1{
+    font-size: 20px;
+    font-weight: 700;
+
+}
+.hero .deskripsi .info-price{
+    padding: 10px;
+    background-color: #f0f0f0;
+}
+.hero .deskripsi .info-price .price > *{
+    margin: 0;
+}
+
+.hero .deskripsi .info-price .price p{
+    font-size: 14px;
+    color: #7C7C7C;
+}
+
+.hero .deskripsi .info-price .price h2{
+    font-size: 18px;
+    padding-left: 28px;
+}
+.hero .deskripsi .info-price .btn-order .btn{
+    background-color: #FF9255;
+    border: none;
+    font-weight: 600;
+}
+
+.hero .deskripsi .text{
+    margin-top: 12px;
+    font-size: 13px;
+}
+.badge {
+    background-color: #FFE4D4;
+    color: #FF9255;
+    padding: 20px;
+    border-radius: 0;
+    margin-right: 10px;
+}
+
+h3{
+    font-weight:600;
+}
+
+
+.card .info .left h6{
+    font-size: 10px;
+    color: #7C7C7C;
+    margin: 0;
+}
+
+.card .info .left h5{
+    font-size: 15px;
+    margin: 0;
+    margin-bottom: 10px;
+}
+.card .info .right .btn-outline-primary{
+    border-color: #FF5D02;
+    color: #FF5D02;
+}
+.card .info .right .btn-outline-primary:hover{
+    border-color: #FF5D02;
+    color: #fff;
+    background-color: #FF5D02;
+}
+.card .info .right .btn-primary{
+    background-color: #FF5D02;
+    border: #FF5D02;
+}
+
+.my-cart{
+    position: absolute;
+    width: 320px;
+    height: 100vh;
+    padding: 20px;
+    background-color: #fff;
+    right: 0;
+    top: 0;
+}
+
+.my-cart .items{
+    list-style-type: none;
+    margin-top: 30px;
+    height: 440px;
+    padding-left: 10px;
+}
+
+.my-cart .item{
+    position: relative;
+    background-color: #e7e7e7;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.my-cart .item .imgBox{
+    position: relative;
+    width: 50px;
+    height: 40px;
+    overflow: hidden;
+}
+
+.my-cart .item .imgBox img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.my-cart .item .right{
+    width: 170px;
+    margin-left: 10px;
+}
+
+.my-cart .item .right h5{
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+.my-cart .item .right h6{
+    font-size:  10px;
+    font-weight: 800;
+    margin-bottom: 0;
+}
+
+.my-cart .item .right .btn{
+    padding: 0;
+    line-height: 5px;
+    background-color: #ECECEC;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.value{
+    width: 80px;
+}
+
+.my-cart .btn-primary{
+    width: 100%;
+    background-color: #FF5D02;
+    border-color: #FF5D02;
+    border-radius: 25px;
+}
+
+
+/* LOGIN */
+.page-login{
+    width: 500px;
+    text-align: center;
+}
+.page-login img{
+    width: 60%;
+}
+
+.page-login form{
+    margin-top: -20px;
+}
+
+.page-login .form-login{
+    width: 50%;
+    border-radius: 8px;
+    background: #e0e0e0;
+    box-shadow:  20px 20px 60px #bebebe,
+                -20px -20px 60px #ffffff;
+}
+.page-login .form-login:focus{
+    border-color: #7C7C7C;
+}
+.page-login button{
+    width: 50%;
+    background-color: #FF5D02;
+    border-color: #FF5D02;
+}
+.page-login button:hover{
+    background-color: #FF5D02;
+    border-color: #ff5e00da;
+}
+.page-login button:focus{
+    background-color: #FF5D02;
+    border-color: #ff5e00da;
+}
+
+/* ADMIN */
+.admin-navbar{
+    position: absolute;
+    width: 300px;
+    height: 100vh;
+    background-color: #fff;
+    padding: 30px;
+}
+.admin-navbar button{
+    margin-bottom: 20px;
+    height: 48px
+}
+.admin-navbar button ion-icon{
+    margin-top: 4px;
+}
+
+.admin-navbar button span{
+    margin-left: 20px;
+}
+.admin-navbar button span:nth-child(3){
+    margin-left: 0;
+}
+
+.admin-navbar .nav-link{
+    background-color: #e7e7e7;    
+    color: #7C7C7C;
+    border-radius: 12px;
+}
+
+.admin-navbar .nav-link.active{
+    background-color: #FF5D02;
+}
+
+.admin-header{
+    position: absolute;
+    width: calc(100% - 300px);
+    height: 50px;
+    left: 300px;
+    padding: 10px;
+}
+
+.admin-header .left ion-icon{
+    font-size: 50px;
+}
+.admin-header .dropdown button{
+    background-color: transparent;
+    color: #7C7C7C;
+    border-color: transparent;
+}
+
+.admin-content.tab-content{
+    width: calc(100% - 300px);
+    left: 300px;
+    height: calc(100vh - 50px);
+}
+
+.dashboard-item{
+    padding: 20px;
+    color: white;
+    width: 30%;
+}
+
+.dashboard-order{
+    background-color: #C361FF;
+}
+
+.dashboard-income{
+    background-color: #5EEAB8;
+}
+
+.dashboard-customer-today{
+    background-color: #61BDFF;
+}
+
+.btn-edit{
+    width: 80px;
+}
+
+.btn-hapus{
+    width: 100px;
+}
+#page-order ul{
+    background-color: transparent;
+}
+
+#page-order button.nav-link{
+    font-weight: 600;
+    color: #000;
+}
+
+#page-order button.nav-link.active{
+    border-radius: 0;
+    background-color: transparent;
+    color: #FF5D02;
+    border-bottom: 2px solid #FF5D02;
+}
