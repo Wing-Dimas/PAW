@@ -18,7 +18,8 @@ require "function.php";
             <th>No</th>
             <th>id</th>
             <th>Nama</th>
-            <th>email</th>
+            <th>Email</th>
+            <th>Alamat</th>
             <th>action</th>
         </thead>
         <tbody>
