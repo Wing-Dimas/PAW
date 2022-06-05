@@ -1,0 +1,17 @@
+.cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.cards .card{
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--black2);
+    padding: 20px;
+}
+
+.cards .card .icon i{
+    color: white;
+    font-size: 30px;
+}

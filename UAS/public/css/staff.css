@@ -1,0 +1,41 @@
+.cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.cards .card{
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--black2);
+    padding: 20px;
+}
+
+.cards .card .icon i{
+    color: white;
+    font-size: 30px;
+}
+.btn-detail{
+    padding: 5px;
+    text-align: center;
+    background-color: var(--purple);
+    font-size: 12px;
+}
+.btn-close{
+    padding: 5px 0;
+    text-align: center;
+    background-color: var(--yellow);
+    font-size: 12px;
+}
+.action-voting{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2px; 
+}
+.action-voting i{
+    margin-right: 5px;
+}
+
+.form-delete .btn-delete{
+    width: 100%;
+}

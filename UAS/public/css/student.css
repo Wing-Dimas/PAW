@@ -1,0 +1,90 @@
+.list-voting{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.list-voting .card{
+    padding: 20px;
+    background-color: var(--black2);
+    border-radius: 15px;
+    border: none;
+}
+
+.list-voting .card h2{
+    font-size: 16px;
+}
+
+.list-voting .card .date{
+    display: flex;
+    justify-content: space-between;
+}
+
+.list-voting .card .date span{
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.list-voting .card .btn-voting{
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: var(--blue);
+}
+
+.footer-voting{
+    display: flex;
+    justify-content: end;
+}
+
+.content-wrapper{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+}
+.show-detail-voting{
+    background-color: var(--black2);
+    min-height: calc(100vh - 150px);
+    border-radius: 15px;
+    padding: 20px;
+}
+.show-detail-voting .description{
+    margin-top: 20px;
+    font-size: 300;
+    font-size: 10px;
+}
+
+.show-detail-voting h2{
+    margin: 20px 0;
+}
+
+.candidates{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.candidates .candidate{
+    border: 1px solid var(--black3);
+}
+.candidates .candidate h4{
+    border-bottom: 1px solid var(--black3);
+    padding: 10px;
+}
+
+.candidates .candidate p{
+    font-weight: 300;
+    font-size: 11px;
+    padding: 10px;
+}
+
+.candidates .candidate .btn-wrapper{
+    display: flex;
+    justify-content: end;
+}
+
+.candidates .candidate .btn-wrapper .btn-vote{
+    background-color: var(--purple);
+    padding: 10px 30px;
+    margin: 0 10px 10px 0;
+
+}

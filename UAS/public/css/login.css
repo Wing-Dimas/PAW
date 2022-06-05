@@ -1,0 +1,49 @@
+.form{
+    width: 400px;
+    padding: 30px;
+    background-color: var(--black2);
+    position: absolute;
+    left: calc(100vw - 90%);
+    top: calc(100vh - 50% - 200px);
+    border-radius: 15px;
+    z-index: 99;
+}
+.form-group{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group input{
+    margin-top: 40px;
+    padding: 20px 30px;
+    border: none;
+    border-left: 8px solid var(--blue);
+    color: var(--black2);
+}
+
+.form-group .btn{
+    display: flex;
+    justify-content: end;
+    margin-top: 30px;
+}
+
+.form-group .btn button{
+    padding: 10px 40px;
+    background-color: var(--yellow) ;
+    border: none;
+}
+
+
+h1{
+    font-size: 48px;
+    font-weight: 500;
+    color: var(--purple);
+    text-align: center;
+}
+
+
+img{
+    position: absolute;
+    top: calc(100vh - 50% - 200px);
+    right: calc(100vw - 90%);
+}

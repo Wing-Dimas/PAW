@@ -1,0 +1,328 @@
+@import url('https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css');
+
+@font-face {
+    font-family: "Zona-Pro";
+    src: url("/../font/ZonaPro-Hairline.woff") format("woff");
+    font-weight: 100;
+}
+@font-face {
+    font-family: "Zona-Pro";
+    src: url("/../font/ZonaPro-HairlineItalic.woff") format("woff");
+    font-weight: 100;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Zona-Pro";
+    src: url("/../font/ZonaPro-Thin.woff") format("woff");
+    font-weight: 200;
+}
+@font-face {
+    font-family: "Zona-Pro";
+    src: url("/../font/ZonaPro-ThinItalic.woff") format("woff");
+    font-weight: 200;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Zona-Pro";
+    src: url("/../font/ZonaPro-Light.woff") format("woff");
+    font-weight: 300;
+}
+@font-face {
+    font-family: "Zona-Pro";
+    src: url("/../font/ZonaPro-LightItalic.woff") format("woff");
+    font-weight: 300;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Zona-Pro";
+    src: url("/../font/ZonaPro-Regular.woff") format("woff");
+    font-weight: 400;
+}
+@font-face {
+    font-family: "Zona-Pro";
+    src: url("/../font/ZonaPro-RegularItalic.woff") format("woff");
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Zona-Pro";
+    src: url("/../font/ZonaPro-SemiBold.woff") format("woff");
+    font-weight: 500;
+}
+@font-face {
+    font-family: "Zona-Pro";
+    src: url("/../font/ZonaPro-SemiBoldItalic.woff") format("woff");
+    font-weight: 500;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Zona-Pro";
+    src: url("/../font/ZonaPro-SemiBold.woff") format("woff");
+    font-weight: 600;
+}
+@font-face {
+    font-family: "Zona-Pro";
+    src: url("/../font/ZonaPro-SemiBoldItalic.woff") format("woff");
+    font-weight: 600;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Zona-Pro";
+    src: url("/../font/ZonaPro-Bold.woff") format("woff");
+    font-weight: 700;
+}
+@font-face {
+    font-family: "Zona-Pro";
+    src: url("/../font/ZonaPro-BoldItalic.woff") format("woff");
+    font-weight: 700;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Zona-Pro";
+    src: url("/../font/ZonaPro-ExtraBold.woff") format("woff");
+    font-weight: 800;
+}
+@font-face {
+    font-family: "Zona-Pro";
+    src: url("/../font/ZonaPro-ExtraBoldItalic.woff") format("woff");
+    font-weight: 800;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Zona-Pro";
+    src: url("/../font/ZonaPro-Black.woff") format("woff");
+    font-weight: 900;
+}
+@font-face {
+    font-family: "Zona-Pro";
+    src: url("/../font/ZonaPro-BlackItalic.woff") format("woff");
+    font-weight: 900;
+    font-style: italic;
+}
+
+
+:root{
+    --black1 : #1F1D2B;
+    --black2 : #252837;
+    --black3 : #2E3440;
+    --red    : #F55353;
+    --purple : #9747FF;
+    --blue   : #6EBFEE;
+    --grey1  : #9A9A9A;
+    --grey2  : #B2B2B2;
+    --yellow : #FEB139;
+}
+ul, ol{
+    list-style-type: none;
+}
+*{
+    font-family: "Zona-Pro" ,Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+    text-decoration: none;
+}
+
+body{
+   background-color: var(--black1);
+   min-height: 100vh;
+   position: relative;
+}
+
+button{
+    border: none;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+.sidebar{
+    position: fixed;
+    background-color: var(--black2);
+    width: 300px;
+    min-height: 100vh;
+    left: 0;
+    top: 0;
+}
+
+.sidebar .profile{
+    margin-top: 30px;
+    padding: 30px;
+}
+.sidebar .profile i{
+    font-size: 50px;
+}
+
+.sidebar .profile h2{
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.sidebar .profile .date{
+    font-weight: 300;
+    font-size: 13px;
+}
+
+nav{
+    padding-top: 20px;
+}
+
+nav ul{
+    width: 100%;
+}
+
+nav ul li{
+    position: relative;
+    width: 100%;
+}
+
+nav ul li a{
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 10px 30px;
+    font-weight: 300;
+}
+nav ul li a i{
+    margin-right: 10px;
+}
+nav ul li.active a{
+    background-color: var(--black3);
+}
+
+
+nav ul li.active a::before{
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 22px;
+    left: 0;
+    background-color: white;
+}
+nav ul li.active a::after{
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 22px;
+    right: 0;
+    background: var(--blue);
+    background: linear-gradient(180deg, var(--blue) 0%, var(--purple) 100%);
+}
+
+.sidebar .btn-logout{
+    position: absolute;
+    display: block;
+    left: 70px;
+    bottom: 60px;
+    border-radius: 50px;
+    border: 1px solid var(--red);
+    padding: 10px 30px;
+    transition: all .4s;
+}
+
+.sidebar .btn-logout > *{
+    color: var(--red);
+}
+
+.sidebar .btn-logout:hover{
+    background-color: var(--red);
+}
+
+.sidebar .btn-logout:hover > *{
+    color: white;
+}
+
+.main{
+    position: absolute;
+    width: calc(100% - 300px);
+    min-height: 100vh;
+    overflow: hidden;
+    left: 300px;
+    padding: 20px;
+}
+
+.search-bar{
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.search-bar input{
+    padding: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    width: 100%;
+    height: 60px;
+    border-radius: 50px;
+    background-color: var(--black2);
+    border: none;
+}
+
+.search-bar button{
+    position: absolute;
+    top: 8px;
+    right: 20px;
+    background-color: transparent;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    transition: all .5s;
+}
+
+.search-bar button i{
+    font-size: 22px;
+    color: var(--grey1);
+}
+.search-bar button:hover{
+    border: 1px solid var(--grey1);
+    box-shadow: 0 0 15px 1px var(--grey1);
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+table thead th{
+    background-color: var(--grey2);
+    padding: 10px;
+}
+
+table tbody td{
+    padding: 15px 9px;
+    word-wrap: break-word;
+}
+
+table tbody tr:nth-child(even){
+    background-color: var(--black3);
+}
+
+.btn-edit{
+    display: block;
+    padding: 5px 20px;
+    background-color: var(--blue);
+    font-size: 12px;
+    text-align: center;
+}
+
+.action{
+    display: flex;
+    justify-content: space-between;
+}
+
+.action .form-delete{
+    display: block;
+    width: auto;
+}
+.action i{
+    margin-right: 5px;
+}
+
+.btn-delete{
+    background-color: var(--red);
+    font-size: 12px;
+    padding: 5px 20px;
+}
