@@ -10,7 +10,8 @@
 </head>
 <body>
     <div class="form">
-        <form action="" method="post">
+        <form action="{{ route("login.store") }}" method="post">
+            @csrf
             <h1>Login</h1>
             <div class="form-group">
                 <input type="text" name="email" type="email" placeholder="Email">

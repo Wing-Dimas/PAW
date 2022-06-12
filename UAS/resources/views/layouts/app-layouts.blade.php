@@ -20,10 +20,10 @@
             {{ $itemNavbar ?? "" }}
         </nav>
 
-        <a href="/logout" class="btn-logout">
-            <i class="fi fi-sr-sign-out"></i>
-            <span>Logout</span>
-        </a>             
+        <form action="{{ route("logout") }}" method="post">
+            @csrf
+            <button class="btn-logout"><i class="fi fi-sr-sign-out"></i> Logout</button>
+        </form>             
         
     </div>
 
@@ -32,5 +32,7 @@
         
         {{ $content ?? ""}}
     </div>
+
+    <script src="\js\jquery-3.6.0.min.js"></script>
 </body>
 </html>

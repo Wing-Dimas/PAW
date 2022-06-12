@@ -214,11 +214,16 @@ nav ul li.active a::after{
 .sidebar .btn-logout{
     position: absolute;
     display: block;
+    background-color: transparent;
+    color: var(--red);
     left: 70px;
     bottom: 60px;
     border-radius: 50px;
     border: 1px solid var(--red);
     padding: 10px 30px;
+    transition: all .4s;
+}
+.sidebar .btn-logout > *{
     transition: all .4s;
 }
 
@@ -227,6 +232,7 @@ nav ul li.active a::after{
 }
 
 .sidebar .btn-logout:hover{
+    color: white;
     background-color: var(--red);
 }
 

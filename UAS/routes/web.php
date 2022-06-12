@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
@@ -17,13 +18,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get("/", [LoginController::class, "index"]);
 
-Route::get("/student", [StudentController::class, "index"]);
-Route::get("/student/voting-history", [StudentController::class, "history"]);
+Route::group(["middleware" => "revalidate"], function(){
+    Route::get("/", [LoginController::class, "index"])->name("login.index");
+    Route::post("/login", [LoginController::class, "store"])->name("login.store");
 
-Route::get("/admin", [AdminController::class, "index"]);
-Route::get("/admin/user", [AdminController::class, "user"]);
+    Route::middleware("auth")->group(function(){
 
-Route::get("/staff", [StaffController::class, "index"]);
-Route::get("/staff/voting", [StaffController::class, "voting"]);
+        Route::middleware("student")->group(function(){
+            Route::get("/student", [StudentController::class, "index"]);
+            Route::get("/student/voting-history", [StudentController::class, "history"]);
+        });
+        
+        Route::middleware("admin")->group(function(){
+            Route::get("/admin", [AdminController::class, "index"])->middleware("admin");
+            Route::get("/admin/user", [AdminController::class, "user"]);
+        });
+
+        Route::middleware("staff")->group(function(){
+            Route::get("/staff", [StaffController::class, "index"]);
+            Route::get("/staff/voting", [StaffController::class, "voting"]);
+        });
+    
+        Route::post("/logout", LogoutController::class)->name("logout");
+    });
+});
