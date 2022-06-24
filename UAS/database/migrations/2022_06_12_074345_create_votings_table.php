@@ -18,8 +18,7 @@ class CreateVotingsTable extends Migration
             $table->string("title");
             $table->text("voting_description");
             $table->string("created_by");
-            $table->enum("voting_status", ["open", "close"]);
-            $table->timestamp("closed_at");
+            $table->enum("voting_status", ["open", "close", "prepare"]);
             $table->timestamps();
         });
     }

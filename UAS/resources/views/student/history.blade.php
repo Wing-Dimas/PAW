@@ -1,39 +1,27 @@
 <x-student-layouts>
-     @slot('title', "History")
-
-    @slot('profile')
-        Dimas Wing Bagas Bimantara
-    @endslot
+    @slot('title', "History")
 
     @slot('content')
-        <table>
+         <h1 class="title-page">History</h1>
+        
+         <table id="table-history" class="display table">
             <thead>
                 <tr>
-                    <th>No</th>
-                    <th>Voting</th>
-                    <th>Vote</th>
-                    <th>Date</th>
+                    <th width="20px">No</th>
+                    <th width="300px">Title</th>
+                    <th>Candidate</th>
+                    <th>Voting Date</th>
                 </tr>
             </thead>
             <tbody>
+            @foreach($user_votes as $user_vote)
                 <tr>
-                    <td>1</td>
-                    <td>Pemilihan Ketua Umum UKM-FT</td>
-                    <td>Wing</td>
-                    <td>15 April 2002</td>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $user_vote->title }}</td>
+                    <td>{{ $user_vote->header }}</td>
+                    <td>{{ $user_vote->voting_date }}</td>
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Pemilihan Ketua Umum UKM-FT</td>
-                    <td>Wing</td>
-                    <td>15 April 2002</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Pemilihan Ketua Umum UKM-FT</td>
-                    <td>Wing</td>
-                    <td>15 April 2002</td>
-                </tr>
+            @endforeach
             </tbody>
         </table>
     @endslot

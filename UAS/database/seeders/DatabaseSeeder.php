@@ -39,7 +39,7 @@ class DatabaseSeeder extends Seeder
                 "role" => "staff"
             ],
             [
-                "email" => "studentf@example.com",
+                "email" => "student@example.com",
                 "username" => "greenlink",
                 "password" => Hash::make("password"),
                 "role" => "student"

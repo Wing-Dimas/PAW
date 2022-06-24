@@ -14,10 +14,10 @@ class AddVotingIdToUserVotes extends Migration
     public function up()
     {
         Schema::table('user_votes', function (Blueprint $table) {
-            $table->unsignedBigInteger("voting_id");
+            $table->unsignedBigInteger("voting_id")->nullable();
 
             // references
-            $table->foreign("voting_id")->references("id")->on("votings");
+            $table->foreign("voting_id")->references("id")->on("votings")->onDelete("set null");
         });
     }
 

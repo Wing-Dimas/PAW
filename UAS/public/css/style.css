@@ -286,7 +286,7 @@ nav ul li.active a::after{
     box-shadow: 0 0 15px 1px var(--grey1);
 }
 
-table{
+/* table{
     width: 100%;
     border-collapse: collapse;
     table-layout: fixed;
@@ -304,7 +304,7 @@ table tbody td{
 
 table tbody tr:nth-child(even){
     background-color: var(--black3);
-}
+} */
 
 .btn-edit{
     display: block;
@@ -332,3 +332,67 @@ table tbody tr:nth-child(even){
     font-size: 12px;
     padding: 5px 20px;
 }
+
+.btn-tambah{
+    background-color: var(--purple);
+    border-radius: 8px;
+    font-size: 12px;
+    padding: 10px 20px;
+    transition: all 0.8s;
+}
+
+.btn-tambah:hover{
+    box-shadow: 5px 5px 44px 0px var(--purple);
+}
+
+
+.dataTables_wrapper{
+    margin-top: 50px;
+}
+
+.forms{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 50px
+}
+
+.forms input, .forms select{
+    padding-top: 10px;
+    font-size: 15px;
+    width: 100%;
+    background-color: white;
+    padding: 10px;
+    color: var(--black3);
+    border: none;
+}
+
+option{
+    color: inherit;
+}
+
+.btn{
+    margin: 10px;
+}
+.danger{
+    font-size: 10px;
+    color: var(--red);
+}
+
+h1.title-page{
+    margin: 10px 0 30px;
+}
+
+.swal2-icon-content{
+    color: inherit;
+}
+
+.action-voting{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.dataTables_wrapper select > *{
+    background-color: var(--black1);
+}
+

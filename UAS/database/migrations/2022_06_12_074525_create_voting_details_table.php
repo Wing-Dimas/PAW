@@ -17,7 +17,7 @@ class CreateVotingDetailsTable extends Migration
             $table->id();
             $table->string("header");
             $table->text("voting_details_description");
-            $table->integer("voted");
+            $table->integer("voted")->default(0);
             $table->timestamps();
         });
     }

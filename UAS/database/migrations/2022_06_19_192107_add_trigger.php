@@ -2,9 +2,10 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserVotesTable extends Migration
+class AddTrigger extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +14,12 @@ class CreateUserVotesTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_votes', function (Blueprint $table) {
-            $table->id();
-            $table->timestamp("voting_date");
-            $table->string("title");
-            $table->string("header");
-            $table->timestamps();
-        });
+        DB::unprepared("
+        CREATE TRIGGER add_vote AFTER INSERT ON `user_votes` FOR EACH ROW
+            BEGIN
+                UPDATE voting_details SET voted = voted + 1 WHERE id = NEW.voting_detail_id;
+            END
+        ");
     }
 
     /**
@@ -29,6 +29,6 @@ class CreateUserVotesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_votes');
+        DB::unprepared("DROP TRIGGER add_vote");
     }
 }

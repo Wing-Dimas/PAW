@@ -7,15 +7,11 @@
         {{ $title }} | Student
     @endslot
 
-    @slot('profile')
-        {{ $profile }}
-    @endslot
-
     @slot('itemNavbar')
         <ul>
-            <li {{ $title == "Dashboard" ? 'class=active' : "" }}>
+            <li {{ $title == "Home" ? 'class=active' : "" }}>
                 <a href="/student">
-                    <i class="fi fi-sr-home"></i><span>Dashboard</span>
+                    <i class="fi fi-sr-home"></i><span>Home</span>
                 </a>
             </li>
             <li {{ $title == "History" ? 'class=active' : "" }}>
@@ -27,12 +23,7 @@
     @endslot
 
     @slot('searchBar')
-        <div class="search-bar">
-            <form action="" method="post">
-                <input type="text" name="search" placeholder="Search">
-                <button type="submit"><i class="fi fi-sr-search"></i></button>
-            </form>
-        </div>
+        {{ $searchBar ?? "" }}
     @endslot
     
     @slot('content')

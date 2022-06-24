@@ -17,7 +17,7 @@ class AddVotingIdToVotingDetails extends Migration
             $table->unsignedBigInteger("voting_id");
 
             // refences
-            $table->foreign("voting_id")->references("id")->on("votings");
+            $table->foreign("voting_id")->references("id")->on("votings")->onDelete("CASCADE");
         });
     }
 

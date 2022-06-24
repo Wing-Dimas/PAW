@@ -17,7 +17,7 @@ class AddUserIdToUserVotes extends Migration
             $table->unsignedBigInteger("user_id");
 
             // references
-            $table->foreign("user_id")->references("id")->on("users");
+            $table->foreign("user_id")->references("id")->on("users")->onDelete("CASCADE");
         });
     }
 

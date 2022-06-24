@@ -14,10 +14,10 @@ class AddVotingDetailIdToUserVotes extends Migration
     public function up()
     {
         Schema::table('user_votes', function (Blueprint $table) {
-            $table->unsignedBigInteger("voting_detail_id");
+            $table->unsignedBigInteger("voting_detail_id")->nullable();
 
             // references
-            $table->foreign("voting_detail_id")->references("id")->on("voting_details");
+            $table->foreign("voting_detail_id")->references("id")->on("voting_details")->onDelete("SET NULL");
         });
     }
 

@@ -7,32 +7,23 @@
         {{ $title }} | Staff
     @endslot
 
-    @slot('profile')
-        {{ $profile }}
-    @endslot
-
     @slot('itemNavbar')
         <ul>
             <li {{ $title == "Dashboard" ? 'class=active' : "" }}>
-                <a href="/staff">
-                    <i class="fi fi-sr-home"></i><span>Dashboard</span>
+                <a href="{{ route("staff.index") }}">
+                    <i class="fi fi-sr-tachometer-alt-slow"></i><span>Dashboard</span>
                 </a>
             </li>
             <li {{ $title == "Voting" ? 'class=active' : "" }}>
-                <a href="/staff/voting">
-                    <i class="fi fi-sr-document"></i><span>Voting</span>
+                <a href="{{ route("voting.index") }}">
+                    <i class="fi fi-sr-box"></i><span>Voting</span>
                 </a>
             </li>
          </ul>
     @endslot
 
     @slot('searchBar')
-        <div class="search-bar">
-            <form action="" method="post">
-                <input type="text" name="search" placeholder="Search">
-                <button type="submit"><i class="fi fi-sr-search"></i></button>
-            </form>
-        </div>
+        
     @endslot
     
     @slot('content')
